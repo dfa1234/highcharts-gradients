@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highcharts Configuration Tests</title>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+  </head>
+  <body>
+    <div id="container1"></div>
+    <div id="container2"></div>
+    <script>
+      const configuration1 = {
+        chart: {
+          type: 'line',
+        },
+        title: null,
+        credits: {
+          enabled: false,
+        },
+        accessibility: {
+          enabled: false,
+        },
+        legend: {
+          enabled: false,
+        },
+        xAxis: {
+          categories: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+        },
+        yAxis: {
+          title: null,
+        },
+        credits: {
+          enabled: false,
+        },
+        series: [
+          {
+            name: 'Serie 1',
+            type: 'areaspline',
+            data: [8, 8, 8, 8, 8, 8, 8, 8],
+            zones: [
+              {
+                value: 6,
+                color: 'blue',
+                fillColor: {
+                  stops: [
+                    [0, 'red'],
+                    [1, 'yellow'],
+                  ],
+                  linearGradient: {
+                    x1: 0,
+                    y1: 0, //BOTTOM VERTICAL
+                    x2: 0,
+                    y2: 1, //TOP VERTICAL
+                  },
+                },
+              },
+            ],
+            zoneAxis: 'x',
+          },
+        ],
+      };
+
+      ////////////////
+      console.warn('Start');
+      Highcharts.chart('container1', configuration1);
+      const configuration2 = JSON.parse(JSON.stringify(configuration1));
+      configuration2.series[0].data[4] = -8;
+      Highcharts.chart('container2', configuration2);
+    </script>
+  </body>
+</html>
