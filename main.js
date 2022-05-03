@@ -58,5 +58,3 @@ const configuration1 = {
 ////////////////
 
 const chart = Highcharts.chart('container1', configuration1);
-console.log(chart);
-console.warn('ddd');
