@@ -24,19 +24,7 @@ const configuration1 = {
   },
   plotOptions: {
     area: {
-      color: 'gray',
-      fillColor: {
-        stops: [
-          [0, 'blue'],
-          [1, 'purple'],
-        ],
-        linearGradient: {
-          x1: 0, // LEFT
-          y1: 1, // TOP
-          x2: 0, // RIGHT
-          y2: 0, // BOTTOM
-        },
-      },
+      color: 'transparent',
       threshold: null,
     },
   },
