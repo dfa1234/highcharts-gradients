@@ -1,6 +1,6 @@
 const configuration1 = {
   chart: {
-    type: 'line',
+    type: 'area',
   },
   title: null,
   credits: {
@@ -42,7 +42,6 @@ const configuration1 = {
   series: [
     {
       name: 'Serie 1',
-      type: 'area',
       zoneAxis: 'x',
       data: [8, 8, 8, 8, 8, 8, 8, 7],
       zones: [
