@@ -56,8 +56,7 @@ const configuration1 = {
 };
 
 ////////////////
-console.warn('Start');
-Highcharts.chart('container1', configuration1);
-const configuration2 = JSON.parse(JSON.stringify(configuration1));
-configuration2.series[0].data[4] = -8;
-Highcharts.chart('container2', configuration2);
+
+const chart = Highcharts.chart('container1', configuration1);
+console.log(chart);
+console.warn('ddd');
