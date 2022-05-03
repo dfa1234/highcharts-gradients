@@ -24,6 +24,7 @@ const configuration1 = {
   },
   plotOptions: {
     area: {
+      color: 'gray',
       fillColor: {
         stops: [
           [0, 'blue'],
@@ -47,7 +48,7 @@ const configuration1 = {
       zones: [
         {
           value: 6,
-          color: 'blue',
+          color: 'black',
           fillColor: {
             stops: [
               [0, 'yellow'],
