@@ -17,36 +17,23 @@ const configuration1 = {
   },
   yAxis: {
     title: null,
-    min: -9,
+    min: -20,
   },
   credits: {
     enabled: false,
   },
   plotOptions: {
     area: {
-      marker: {
-        radius: 5,
-        fillColor: '#2e67b2',
-        lineWidth: 2,
-        lineColor: '#abc2e0',
-      },
-      allowPointSelect: true,
       fillColor: {
+        stops: [
+          [0, 'blue'],
+          [1, 'purple'],
+        ],
         linearGradient: {
           x1: 0,
-          y1: 0,
+          y1: 1,
           x2: 0,
-          y2: 1,
-        },
-        stops: [
-          [0, 'rgba(214,237,254,0.90)'],
-          [1, 'rgba(255,255,255,0.00)'],
-        ],
-      },
-      lineWidth: 1,
-      states: {
-        hover: {
-          lineWidth: 1,
+          y2: 0,
         },
       },
       threshold: null,
@@ -55,28 +42,27 @@ const configuration1 = {
   series: [
     {
       name: 'Serie 1',
-      type: 'areaspline',
-      data: [8, 8, 8, 8, 8, 8, 8, 8],
-      zones: [
-        // {
-        //   value: 6,
-        //   color: 'blue',
-        //   fillColor: {
-        //     stops: [
-        //       [0, 'yellow'],
-        //       [1, 'red'],
-        //     ],
-        //     linearGradient: {
-        //       x1: 0, // LEFT
-        //       y1: 1, // TOP
-        //       x2: 0, // RIGHT
-        //       y2: 0, // BOTTOM
-        //     },
-        //   },
-        //   threshold: null,
-        // },
-      ],
+      type: 'area',
       zoneAxis: 'x',
+      data: [8, 8, 8, 8, 8, 8, 8, 7],
+      zones: [
+        {
+          value: 6,
+          color: 'blue',
+          fillColor: {
+            stops: [
+              [0, 'yellow'],
+              [1, 'red'],
+            ],
+            linearGradient: {
+              x1: 0, // LEFT
+              y1: 1, // TOP
+              x2: 0, // RIGHT
+              y2: 0, // BOTTOM
+            },
+          },
+        },
+      ],
     },
   ],
 };
