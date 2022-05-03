@@ -30,10 +30,10 @@ const configuration1 = {
           [1, 'purple'],
         ],
         linearGradient: {
-          x1: 0,
-          y1: 1,
-          x2: 0,
-          y2: 0,
+          x1: 0, // LEFT
+          y1: 1, // TOP
+          x2: 0, // RIGHT
+          y2: 0, // BOTTOM
         },
       },
       threshold: null,
