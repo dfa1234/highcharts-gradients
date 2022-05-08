@@ -9,7 +9,8 @@ const configuration1 = {
         const drawLineTo = 'L';
         const alertPoint = chart.series[0].data[3];
         const alertPointX = alertPoint.plotX + chart.plotLeft;
-        const alertPointY = alertPoint.plotY + configuration1.chart.spaceTop;
+        const alertPointY =
+          alertPoint.plotY + configuration1.chart.spaceTop / 2;
         const bottomChartY = chart.plotHeight + chart.plotTop;
 
         const alertLinePath = [
@@ -76,7 +77,7 @@ const configuration1 = {
     {
       name: 'Serie 1',
       zoneAxis: 'x',
-      data: [5, 5, 6, 6, 6, 5, 5, 4],
+      data: [5, 5, 6, 7, 6, 5, 5, 4],
       zones: [
         {
           value: 6,
