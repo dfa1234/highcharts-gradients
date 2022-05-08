@@ -1,3 +1,5 @@
+let svgElements = [];
+
 const configuration1 = {
   chart: {
     type: 'area',
@@ -5,43 +7,45 @@ const configuration1 = {
     events: {
       render: function () {
         const chart = this;
+
+        svgElements.forEach((element) => element.destroy());
+        svgElements = [];
+
         const moveCursorTo = 'M';
         const drawLineTo = 'L';
-        const alertPoint = chart.series[0].data[3];
-        const alertPointX = alertPoint.plotX + chart.plotLeft;
-        const alertPointY =
-          alertPoint.plotY + configuration1.chart.spaceTop / 2;
+        const moonPoint = chart.series[0].data[3];
+        const moonPointX = moonPoint.plotX + chart.plotLeft;
+        const moonPointY = moonPoint.plotY + configuration1.chart.spaceTop / 2;
         const bottomChartY = chart.plotHeight + chart.plotTop;
 
-        const alertLinePath = [
-          [moveCursorTo, alertPointX, alertPointY],
-          [drawLineTo, alertPointX, bottomChartY],
-        ];
-
-        const alertLine = chart.renderer
-          .path(alertLinePath)
+        const moonLine = chart.renderer
+          .path([
+            [moveCursorTo, moonPointX, moonPointY],
+            [drawLineTo, moonPointX, bottomChartY],
+          ])
           .attr({
             'stroke-width': 5,
             stroke: 'orange',
             'stroke-dasharray': 3,
-            zIndex: 5,
-          })
-          .add();
+            zIndex: 3,
+          });
 
-        const alertIconCircumference = 50;
-
-        const alertIcon = chart.renderer
+        const moonCircumference = 50;
+        const moonImage = chart.renderer
           .image(
             `https://raw.githubusercontent.com/dfa1234/highcharts-gradients/master/circle.svg`,
-            alertPointX - alertIconCircumference / 2,
-            alertPointY - alertIconCircumference / 2,
-            alertIconCircumference,
-            alertIconCircumference
+            moonPointX - moonCircumference / 2,
+            moonPointY - moonCircumference / 2,
+            moonCircumference,
+            moonCircumference
           )
           .attr({
-            zIndex: 6,
-          })
-          .add();
+            zIndex: 4,
+          });
+
+        svgElements.push(moonLine);
+        svgElements.push(moonImage);
+        svgElements.forEach((element) => element.add());
       },
     },
   },
