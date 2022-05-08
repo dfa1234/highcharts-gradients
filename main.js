@@ -74,7 +74,18 @@ const configuration1 = {
     area: {
       color: 'blue',
       threshold: -15,
-      fillColor: 'lightblue',
+      fillColor: {
+        stops: [
+          [0, 'ligthgray'],
+          [1, 'lightblue'],
+        ],
+        linearGradient: {
+          x1: 0, // LEFT
+          y1: 1, // TOP
+          x2: 0, // RIGHT
+          y2: 0, // BOTTOM
+        },
+      },
     },
   },
   series: [
