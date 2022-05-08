@@ -25,7 +25,7 @@ const configuration1 = {
   plotOptions: {
     area: {
       color: 'blue',
-      threshold: null,
+      threshold: -15,
       fillColor: 'lightblue',
     },
   },
