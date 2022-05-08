@@ -1,6 +1,7 @@
 const configuration1 = {
   chart: {
     type: 'area',
+    spaceTop: 20,
   },
   title: null,
   credits: {
@@ -59,3 +60,40 @@ const configuration1 = {
 ////////////////
 
 const chart = Highcharts.chart('container1', configuration1);
+
+const moveCursorTo = 'M';
+const drawLineTo = 'L';
+const alertPoint = chart.series[0].data[3];
+const alertPointX = alertPoint.plotX + chart.plotLeft;
+const alertPointY = alertPoint.plotY + configuration1.chart.spaceTop;
+const bottomChartY = chart.plotHeight + chart.plotTop;
+
+const alertLinePath = [
+  [moveCursorTo, alertPointX, alertPointY],
+  [drawLineTo, alertPointX, bottomChartY],
+];
+
+const alertLine = chart.renderer
+  .path(alertLinePath)
+  .attr({
+    'stroke-width': 5,
+    stroke: 'green',
+    'stroke-dasharray': 3,
+    zIndex: 5,
+  })
+  .add();
+
+const alertIconCircumference = 20;
+
+const alertIcon = chart.renderer
+  .image(
+    `./circle.svg`,
+    alertPointX - alertIconCircumference / 2,
+    alertPointY - alertIconCircumference / 2,
+    alertIconCircumference,
+    alertIconCircumference
+  )
+  .attr({
+    zIndex: 6,
+  })
+  .add();
