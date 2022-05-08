@@ -76,7 +76,7 @@ const configuration1 = {
       threshold: -15,
       fillColor: {
         stops: [
-          [0, 'ligthgray'],
+          [0, 'gray'],
           [1, 'lightblue'],
         ],
         linearGradient: {
