@@ -33,7 +33,7 @@ const configuration1 = {
     {
       name: 'Serie 1',
       zoneAxis: 'x',
-      data: [8, 8, 8, 8, 8, 8, 8, 7],
+      data: [5, 5, 6, 6, 6, 5, 5, 4],
       zones: [
         {
           value: 6,
