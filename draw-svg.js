@@ -10,7 +10,7 @@ export const drawSvg = function () {
   const drawLineTo = 'L';
   const moonPoint = chart.series[0].data[3];
   const moonPointX = moonPoint.plotX + chart.plotLeft;
-  const moonPointY = moonPoint.plotY + 10;
+  const moonPointY = moonPoint.plotY + chart.plotTop;
   const bottomChartY = chart.plotHeight + chart.plotTop;
 
   const moonLine = chart.renderer
